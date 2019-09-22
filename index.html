@@ -6,13 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Disney Trivia</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
+<h1>Disney Mania</h1>
 <body>
-    <h1>Disney Mania</h1>
-    <h3 id=timeRemaining>Time Remaining:</h3>
+   <div class="intro">
+    <h1>
+        <h3>Directions:</h3>
+    <p>You will have 4 minutes to answer as many questions. You may only select 1 choice per question. Have fun channeling your inner child! Click <button id="start">START!</button>  when you are ready to begin.</p>
+        </h1>
+   </div>
+    
 
-    <div>
+    <h2 id=timeRemaining>Time Remaining:</h2>
+
+    <div class="questions">
         <p>What did Scuttle call a fork?
             <br><input type="radio" value="A">Dinglehopper<input type="radio" value="B">Snarfblatt<input type="radio" value="C">Zygost<input
                 type="radio" value="D">Fork<br>
@@ -72,7 +80,14 @@
         <br><input type="radio" value="A">Mickey Mouse<input type="radio" value="B">Minnie Mouse<input type="radio" value="C">Goofy<input
             type="radio" value="D">Donald Duck<br>
         </p>
+        <button>Submit</button>
     </div>
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Script -->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
 </body>
 
 </html>
