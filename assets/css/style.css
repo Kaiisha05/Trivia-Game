@@ -2,9 +2,16 @@ body {
     background-image: url(https://i.imgur.com/MToA8o5.jpg);
 
 }
-.questions {
+.questions, section {
 background: white;
 opacity: .8;
 text-align: center;
 
 }
+.intro {
+    background: white;
+}
+/* section {
+    width: 800px;
+    align-content: center
+} */
