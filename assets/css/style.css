@@ -18,3 +18,11 @@ border-radius: 8px
     text-align: center;
  
 }
+h1 {
+    color: white;
+    background: purple;
+    padding: 20px;
+    font-family: 'Dynalight', cursive;
+
+
+}
