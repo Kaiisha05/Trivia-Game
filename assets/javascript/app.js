@@ -6,8 +6,14 @@ var endGame
 // want the quiz time to give 225 seconds, which is equivalent to 15 seconds per question
 var quizTime = 225;
 var beginGame 
+
+$("#start").click(function(){
+    $(".intro-container").hide();
+  });
+  
+
 // (function() {
-$("#start").on("click", start);
+// $("#start").on("click", start);
 
 // when the submit button is clicked the timer should stop.
 // $("#submit").on("click", stop);
