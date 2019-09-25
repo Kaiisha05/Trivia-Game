@@ -1,13 +1,30 @@
 var numberCorrect
 var numberWrong
 var numberSkipped
-var beginGame
+var setTimeout 
 var endGame
+// want the quiz time to give 225 seconds, which is equivalent to 15 seconds per question
 var quizTime = 225;
+var beginGame 
+// (function() {
+$("#start").on("click", start);
 
-$("start").on("click", start);
-$("submit").on("click", stop);
-$(".time-remaining").html(`Time Remaining:` + " <h2>");
+// when the submit button is clicked the timer should stop.
+// $("#submit").on("click", stop);
+// clock should be displayed within this esablished h2 tag
+// $(".time-remaining").html(`Time Remaining:` + " <h2>");
+
+// });
+
+if (quizTime === 0) {
+    stop();
+}
+function stop () {
+    // how do we get the results page to open with no event listener?
+}
+
+
+
 // var para = $("<p>")
 // trying to create paragraphs to hold the questions
 
