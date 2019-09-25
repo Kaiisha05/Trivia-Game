@@ -10,7 +10,9 @@ var beginGame
 $("#start").click(function(){
     $(".intro-container").hide();
   });
-  
+  $("#submit").click(function(){
+      $(".question-container").hide();
+  });
 
 // (function() {
 // $("#start").on("click", start);
