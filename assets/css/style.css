@@ -2,7 +2,7 @@ body {
     background-image: url(https://i.imgur.com/MToA8o5.jpg);
 
 }
-.section, .intro {
+.container {
 background: white;
 opacity: .8;
 text-align: center;
