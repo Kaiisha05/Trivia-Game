@@ -2,7 +2,7 @@ body {
     background-image: url(https://i.imgur.com/MToA8o5.jpg);
 
 }
-.container {
+.intro-container, .results-container, .questions {
 background: white;
 opacity: .8;
 text-align: center;
@@ -24,11 +24,12 @@ h1 {
     padding: 20px;
     font-family: 'Dynalight', cursive;
 }
-#questions {
+/* #questions {
     background: white;
 opacity: .8;
 text-align: center;
 margin:100px 100px;
 padding: 25px 50px;
 border-radius: 8px;
-}
+} */ 
+/* duplicate formatting, currently pulling from line 5 */

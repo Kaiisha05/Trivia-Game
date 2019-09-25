@@ -8,11 +8,11 @@
     <title>Disney Trivia</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
+<body>
 <h1>Disney Mania</h1>
-<div class="container">
+<div class="intro-container">
 
-    <body>
+    
         <div class="intro">
             <h3>Directions:</h3>
             <p>You will have 4 minutes to answer as many questions. You may only select 1 choice per question. Have fun
@@ -22,7 +22,7 @@
             <button>START!</button>
             <!-- <button id="start"><a href="trivia.html">START!</button> -->
         </div>
-
+</div>
         <!-- want to hide the directions once the START button has been clicked as well as start the timer -->
         <div class="questions">
             <h4 id=timeRemaining>Time Remaining:</h4>
@@ -90,7 +90,23 @@
         </div id="submit">
         <button>SUBMIT</button>
 </div>
+<div class="results-container">
 
+   
+        <div>
+            <section class="results">
+                <h2>Here's Your Results!</h2>
+                <p id="number-right"></p>
+                <p id="number-wrong"></p>
+                <p id="number-skipped"></p>
+            </section>
+        </div>
+        <div id="again">
+            <button>PLAY AGAIN</button>
+       
+            <!-- <button><a href="index.html">PLAY AGAIN</a></button> -->
+        </div>
+</div>
 </div>
 
 <!-- jQuery -->
