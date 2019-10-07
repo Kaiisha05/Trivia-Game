@@ -7,11 +7,31 @@ var endGame
 var quizTime = 225;
 var beginGame 
 
+
+var intervalId;
+$("#start").on("click", run);
+function run() {
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement, 1000);
+
+}
+function decrement (){
+    quizTime--;
+    $("#time-remaining").html("<h2>" + "Time Remaining: " + quizTime + "</h2>");
+    if (quizTime === 0) {
+        stop();
+    }
+}
+function stop () {
+    clearInterval(intervalId);
+}
+run ();
+
 $(document).ready(function() {
     $(".question-container").hide();
     $(".results-container").hide();
-});
 
+});
 $("#start").click(function(){
     $(".intro-container").hide();
     $(".question-container").show();
@@ -22,8 +42,17 @@ $("#start").click(function(){
       $(".results-container").show();
   });
 
+// need functionality for PLAY AGAIN BUTTON
+
 // (function() {
 // $("#start").on("click", start);
+
+
+
+
+
+
+
 
 // when the submit button is clicked the timer should stop.
 // $("#submit").on("click", stop);
