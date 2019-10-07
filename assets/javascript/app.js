@@ -7,11 +7,19 @@ var endGame
 var quizTime = 225;
 var beginGame 
 
+$(document).ready(function() {
+    $(".question-container").hide();
+    $(".results-container").hide();
+});
+
 $("#start").click(function(){
     $(".intro-container").hide();
+    $(".question-container").show();
+    
   });
   $("#submit").click(function(){
       $(".question-container").hide();
+      $(".results-container").show();
   });
 
 // (function() {
