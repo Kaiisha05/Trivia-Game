@@ -1,25 +1,117 @@
-// timer starts and counts down until it hits 0 or submit button is pressed
-// 
-
-
-var numberCorrect
-var numberWrong
-var numberSkipped
-var setTimeout
-var endGame
+/* ------------ VARIABLES ------------ */
+var numberCorrect = 0;
+var numberWrong = 0;
+var numberSkipped = 0;
+var userSelection;
+// var setTimeout
+// var endGame;
+var countdown = false;
 // want the quiz time to give 225 seconds, which is equivalent to 15 seconds per question
-var quizTime = 5;
-var beginGame
-
-
+var quizTime = 15;
+// var beginGame
 var intervalId;
-$("#start").on("click", function () {
-    $(".intro-container").hide();
-    $(".question-container").show();
-    run()
+var array = [];
+
+// $("#start").on("click", function () {
+//     $(".intro-container").hide();
+//     $(".question-container").show();
+//     run()
+// });
+
+/* -------------- QUESTIONS ------------- */
+const triviaQuestions = [{
+    question: "What did Scuttle call a fork?",
+    choices: ["Dinglehopper", "Snarfblatt", "Zygost", "Fork"],
+    answer: 1,
+},
+{
+    question: "What body part did Scuttle check on Prince Eric to confirm life?",
+    choices: ["Wrist", "Chest", "Head", "Foot"],
+    answer: 4,
+},
+{
+    question: "How many dozen of eggs did Gaston eat each morning when he was a lad?",
+    choices: ["Three", "Four", "Five", "What's a lad?"],
+    answer: 2,
+},
+{
+    question: "What color was Cinderella's original dress to the ball?",
+    choices: ["Pink", "Blue", "White", "Purple"],
+    answer: 1,
+},
+{
+    question: "Finish the lyrics: I know you I walked with you once upon a ______.",
+    choices: ["Blue Moon", "Dream", "Starry Night", "Time"],
+    answer: 2,
+},
+{
+    question: "Which dwarf doesn't belong?",
+    choices: ["Bashful", "Grumpy", "Doc", "Joyful"],
+    answer: 4,
+},
+{
+    question: "Pochantas was friends with a _____ and a _____.",
+    choices: ["Hummingbird, Possum", "Hummingbird, Raccoon", "Possum, Parrot", "Raccoon, Parrot"],
+    answer: 2,
+},
+{
+    question: "Moana's journey was to return Te Fiti's _____.",
+    choices: ["Chicken", "Fish Hook", "Heart", "Ring"],
+    answer: 3,
+},
+{
+    question: "hat animal did Princess Jasmine have as a pet?",
+    choices: ["Cheetah", "Jaguar", "Leopard", "Tiger"],
+    answer: 4,
+},
+{
+    question: "What was Tiana's dream?",
+    choices: ["Find true love", "Kiss a frog", "Marry a Prince", "Open a restaurant"],
+    answer: 4,
+},
+{
+    question: "Who joined the army in place of their dad?",
+    choices: ["Ariel", "Elsa", "Merida", "Mulan"],
+    answer: 4,
+},
+{
+    question: "Sven is a _____.",
+    choices: ["Prince", "Reindeer", "Snowman", "Troll"],
+    answer: 2,
+},
+{
+    question: "What color is Merida's hair?",
+    choices: ["Black", "Blonde", "Red", "White"],
+    answer: 3,
+},
+{
+    question: "What was Simba's mother's name?",
+    choices: ["Anna", "Jasmine", "Nala", "Sarabi"],
+    answer: 4,
+},
+{
+    question: "Who's hand does Walt Disney hold?",
+    choices: ["Mickey Mouse", "Minnie Mouse", "Donald Duck", "Goofy"],
+    answer: 1,
+}];
+/* ------------- FUNCTIIONS ------------- */
+$(document).ready(function () {
+    $(".question-container").hide();
+    $(".results-container").hide();
+    $("#start").on("click", function () {
+        $("#intro-container").hide();
+        startTrivia();
+        run();
+        for (var i = 0; i < triviaQuestions.length; i++) {
+            /*research */
+            array.push(triviaQuestions[i]);
+        }
+    })
 });
+/* ------------- TIMER------------- */
 function run() {
     clearInterval(intervalId);
+    countdown = true;
     intervalId = setInterval(decrement, 1000);
 }
 function stop() {
@@ -30,17 +122,26 @@ function decrement() {
     quizTime--;
     $("#time-remaining").html("<h2>" + "Time Remaining: " + quizTime + "</h2>");
     if (quizTime === 0) {
+        numberSkipped ++;
+        $("question-container").html("<h2>" + "Oh no, time's up, the correct answer is: " + triviaQuestions.choice[triviaQuestions.answer] + "</h2>");
+        countdown = false;
         stop();
     }
 }
 
-// run ();
+/* ------------- DISPLAY QUESTIONS ------------- */
 
-$(document).ready(function () {
-    $(".question-container").hide();
-    $(".results-container").hide();
+startTrivia () {
+var shuffle = Math.floor(Math.random()*triviaQuestions.length;
+userSelection=triviaQuestions[shuffle];
+$("#questions").html("<h2>" + userSelection.question + "</h2>");
+for var i = 0; i < userSelection.choice.length; i++) {
+    
+}
+)
+}
 
-});
+
 
 $("#submit").click(function () {
     $(".question-container").hide();
@@ -49,8 +150,6 @@ $("#submit").click(function () {
 
 // need functionality for PLAY AGAIN BUTTON
 
-// (function() {
-// $("#start").on("click", start);
 
 
 
@@ -61,89 +160,11 @@ $("#submit").click(function () {
 
 
 
-var para = $("<p>")
-// trying to create paragraphs to hold the questions
 
 
-// const quizQuestions = document.getElementById("questions")
-// doesn't seem neccessary to keep
-
-const myQuestions = [{
-    question: "What did Suttle call a fork?",
-    answers: {
-        a: "Dinglehopper", b: "Snarfblatt", c: "Zygote", d: "Fork"
-    },
-    correctAnswer: "a"
-},
-{
-    question: "What body part did Scuttle check on Prince Eric to confirm life?",
-    answers: {
-        a: "Foot", b: "Wrist", c: "Chest", d: "Head"
-    },
-    correctAnswer: "a"
-},
-{
-    question: "How many dozen eggs did Gaston eat each morning when he was a lad?",
-    answers: {
-        a: "Five", b: "Four", c: "Three", d: "What's a lad?"
-    },
-    correctAnswer: "b"
-},
-]
-console.log(myQuestions)
-// logs an array of the questions
-
-
-
-
-// does something, cant recall what...reworking page to have questions load dynamically
-// var q = myQuestions
-// // doesn't do anything
-// var container = $("<div>");
-
-// for (var q = 0; q < myQuestions.length; q++) {
-//     $("#questions").text(myQuestions.question)
-//     // this does nothing
-
-//     console.log(myQuestions[q].question)
-//     // logs the results from line 40 into the console..this function works!
-//     var $question = this.createNewQuestion(q);
-//     $question.appendTo($quizQuestions);
-//     para.append(myQuestions[q].question)
-//     // does the same thing as the above code
-//     $("#questions").append(myQuestions[q].question)
-//     // this works, but groups everything together with no breaks
-
-//     $("#questions").append(para)
-//     // does nothing new
-
-// }
 // $("#quiz-questions").html(container)
 
 
-
-// function buildQuiz() { }
-// const output = [];
-// // a place to store the html output *shrug*
-// function showResults() { }
-// // will need to be attached to an onclick event--see line 40
-// buildQuiz();
-// myQuestions.forEach(
-//     (currentQuestion, questionNumber) => {
-//         const answers = [];
-//         for (letter in currentQuestion.answers) {
-//             answers.push(
-//                 `<label>
-//                 <input type="radio" name="question${questionNumber}" value="${letter}">
-//                     ${letter} :
-//                 ${currentQuestion.answers[letter]}
-//             </label>`
-//             )
-//         }
-//         `<div class="questions"> ${currentQuestion.question} </div>
-//         <div class="answers"> ${answers.join("")} </div>`
-
-//         quizQuestions.innerHTML = output.join("");
 
 
 

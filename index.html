@@ -14,8 +14,8 @@
     <div class="intro-container">
 
         <h3>Directions:</h3>
-        <p>You will have 4 minutes to answer as many questions. You may only select 1 choice per question. Have fun
-            channeling your inner child! Click start when you are ready to begin.</p>
+        <p>You will have 15 seconds per question. You may only select 1 choice per question. Have fun channeling your
+            inner child! Click START when you are ready to begin.</p>
 
         <div id="start">
             <button>START!</button>
@@ -25,75 +25,17 @@
     <!-- want to hide the directions once the START button has been clicked as well as start the timer -->
     <div class="question-container">
         <div id="time-remaining"></div>
-
-        <p>What did Scuttle call a fork?
-            <br><input type="radio" name="Q1" value="Dinglehopper">Dinglehopper<input type="radio" name="Q1" value="Snarfblatt">Snarfblatt<input type="radio" name="Q1"
-                value="Zygost">Zygost<input type="radio" name="Q1" value="Fork">Fork<br>
-        </p>
-        <p>What body part did Scuttle check on Prince Eric to confirm life?
-            <br><input type="radio" name="Q2" value="Foot">Foot<input type="radio" name="Q2" value="Wrist">Wrist<input type="radio" name="Q2"
-                value="Chest">Chest<input type="radio" name="Q2" value="Head">Head<br>
-        </p>
-        <p>How many dozen of eggs did Gaston eat each morning when he was a lad?
-            <br><input type="radio" name="Q3" value="Four">Four<input type="radio" name="Q3" value="Five">Five<input type="radio" name="Q3"
-                value="Three">Three<input type="radio" name="Q3" value="What's a lad?">What's a lad?<br>
-        </p>
-        <!-- <p>What color was Cinderella's original dress to the ball?
-            <br><input type="radio" value="A">Pink<input type="radio" value="B">Blue<input type="radio"
-                value="C">White<input type="radio" value="D">Purpler<br>
-        </p>
-        <p>Finish the lyrics: "I know you I walked with you once upon a ______."
-            <br><input type="radio" value="A">Dream<input type="radio" value="B">Starry Night<input type="radio"
-                value="C">Time<input type="radio" value="D">Blue Moon<br>
-        </p>
-        <p>Which dwarf doesn't belong?
-            <br><input type="radio" value="A">Grumpy<input type="radio" value="B">Bashful<input type="radio"
-                value="C">Joyful<input type="radio" value="D">Doc<br>
-        </p>
-        <p>Pochantas was friends with a _____ and a _____.
-            <br><input type="radio" value="A">Hummingbird, Raccoon<input type="radio" value="B">Racoon, Possum<input
-                type="radio" value="C">Possum, Hummingbird<input type="radio" value="D">Parrot, Possum<br>
-        </p>
-        <p>Moana's journey was to return Te Fiti's _____.
-            <br><input type="radio" value="A">Heart<input type="radio" value="B">Ring<input type="radio" value="C">Fish
-            Hook<input type="radio" value="D">Chicken<br>
-        </p>
-        <p>What animal did Princess Jasmine have as a pet?
-            <br><input type="radio" value="A">Tiger<input type="radio" value="B">Leopard<input type="radio"
-                value="C">Jaguar<input type="radio" value="D">Cheetah<br>
-        </p>
-        <p>What was Tiana's dream?
-            <br><input type="radio" value="A">Open a restaurant<input type="radio" value="B">Find true love<input
-                type="radio" value="C">Marry a Prince<input type="radio" value="D">Kiss a frog<br>
-        </p>
-        <p>Who joined the army in place of their dad?
-            <br><input type="radio" value="A">Mulan<input type="radio" value="B">Merida<input type="radio"
-                value="C">Ariel<input type="radio" value="D">Elsa<br>
-        </p>
-        <p>Sven is a _____.
-            <br><input type="radio" value="A">Reindeer<input type="radio" value="B">Snowman<input type="radio"
-                value="C">Troll<input type="radio" value="D">Prince<br>
-        </p>
-        <p>What color is Merida's hair?
-            <br><input type="radio" value="A">Red<input type="radio" value="B">Blonde<input type="radio"
-                value="C">Black<input type="radio" value="D">White<br>
-        </p>
-        <p>What was Simba's mother's name?
-            <br><input type="radio" value="A">Sarabi<input type="radio" value="B">Nala<input type="radio"
-                value="C">Jasmine<input type="radio" value="D">Anna<br>
-        </p>
-        <p>Who's hand does Walt Disney hold?
-            <br><input type="radio" value="A">Mickey Mouse<input type="radio" value="B">Minnie Mouse<input type="radio"
-                value="C">Goofy<input type="radio" value="D">Donald Duck<br>
-        </p> --> 
+        <div id="questions"></div>
+        <br>
         <div id="submit">
+            <!-- may not need since this is all taking place on click events -->
             <button>SUBMIT</button>
         </div>
-    </div> 
+    </div>
 
     <div class="results-container">
         <h2>Here's Your Results!</h2>
-        <div id="results" ></div>
+        <div id="results"></div>
         <p id="number-right"></p>
         <p id="number-wrong"></p>
         <p id="number-skipped"></p>
@@ -110,8 +52,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Script -->
-    <!-- <script type="text/javascript" src="assets/javascript/app.js"></script> -->
-    <script type="text/javascript" src="assets/javascript/alt.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <!-- <script type="text/javascript" src="assets/javascript/alt.js"></script> -->
 </body>
 </div>
 
