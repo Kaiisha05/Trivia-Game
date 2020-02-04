@@ -11,15 +11,21 @@ var userSelection;
 
 
 /* --------------- START GAME -------------- */
+$(document).ready(function () {
+    $(".results-container").hide();
+    $(".display-container").hide();
+});
 $("#start").on("click", function () {
     $(".intro-container").hide();
     startTrivia();
     // $(".display-container").show();
 });
 
- /* --------------- PLAY AGAIN ---------------*/
- $("#again").on("Click", function () {
-     $("#display-container").show();  
+
+/* --------------- PLAY AGAIN ---------------*/
+$("#again").on("Click", function () {
+    $(".results-container").hide();
+    $(".intro-container").hide();
     startTrivia();
 });
 
@@ -65,7 +71,7 @@ var trivia = [{
     answer: 2,
 },
 {
-    question: "hat animal did Princess Jasmine have as a pet?",
+    question: "What animal did Princess Jasmine have as a pet?",
     choices: ["Cheetah", "Jaguar", "Leopard", "Tiger"],
     answer: 3,
 },
@@ -113,15 +119,15 @@ function startTrivia() {
 }
 
 function newQuestion() {
-    $("#right-answer").empty();
+    $(".right-answer").empty();
     answered = true;
 
     $("#currentQuestion").html("Question" + (currentQuestion + 1) + "/" + trivia.length);
-    $("#question").html("<h1>" + trivia[currentQuestion].question + "</h1>");
+    $("#question").html("<h2>" + trivia[currentQuestion].question + "</h2>");
     for (var i = 0; i < 4; i++) {
         var selections = $("<div>");
         selections.text(trivia[currentQuestion].choices[i]);
-        selections.attr({ "data-guess": i });
+        selections.attr({ "data-index": i });
         selections.addClass("thisSelection");
         $("#choices").append(selections);
     }
@@ -129,8 +135,8 @@ function newQuestion() {
 
 
     /* Pausing the Timer When an Answer is Selected */
-    $("#thisSelection").on("click", function () {
-        userSelection = $(this).data("guess");
+    $(".thisSelection").on("click", function () {
+        userSelection = $(this).data("index");
         clearInterval(intervalId);
         finalResults();
     })
@@ -139,29 +145,18 @@ function newQuestion() {
 /* ------------- TIMER------------- */
 function run() {
     quizTime = 15;
-    $("#time-remaining").html("<h2>" + "Time Remaining: " + quizTime + "</h2>");
+    $("#time-remaining").html("<h3>" + "Time Remaining: " + quizTime + "</h3>");
     answered = true;
-
     intervalId = setInterval(decrement, 1000);
 }
 
-
-//     
-//     countdown = true;
-
-// }
-// function stop() {
-//     clearInterval(intervalId);
-
-// }
 function decrement() {
     quizTime--;
-    $("#time-remaining").html("<h2>" + "Time Remaining: " + quizTime + "</h2>");
+    $("#time-remaining").html("<h3>" + "Time Remaining: " + quizTime + "</h3>");
     if (quizTime < 1) {
         clearInterval(intervalId);
         answered = false;;
         finalResults();
-    
     };
 };
 
@@ -187,7 +182,7 @@ function finalResults() {
         answered = true;
     }
     if (currentQuestion === (trivia.length - 1)) {
-    setTimeout(score, 5000)
+        setTimeout(score, 5000)
     } else {
         currentQuestion++;
         setTimeout(newQuestion, 5000);
@@ -196,14 +191,14 @@ function finalResults() {
 
 function score() {
     // $(".intro-container").hide();
-    // $(".display-container").hide();
-    // $(".results-container").show();
+    $(".display-container").hide();
+    $(".results-container").show();
     $("#time-remaining").empty();
     $(".right-answer").empty();
     $("#number-right").html("Correct: " + numberCorrect);
     $("#number-wrong").html("Incorrect: " + numberWrong);
     $("#skipped").html("No response: " + numberSkipped);
- 
+
 
 }
 
