@@ -1,7 +1,11 @@
-body {
-    background: linear-gradient(hsla(0, 0%, 100%, 0.4) 0%, hsla(0, 0%, 100%, 0.4) 100%), url(/assets/images/background.jpg);
+/* body {
+    background: linear-gradient(hsla(0, 0%, 100%, 0.4) 0%, hsla(0, 0%, 100%, 0.4) 100%), url(assets/images/background.jpg);
 
-}
+} */
+
+body {
+    background: linear-gradient(hsla(0, 0%, 100%, 0.8) 0%, hsla(0, 0%, 100%, 0.8) 100%), url("https://source.unsplash.com/random/?disney") no-repeat fixed center center / cover; padding-top: 2rem;
+    }
 .intro-container, .results-container, .display-container {
 background: white;
 text-align: center;
