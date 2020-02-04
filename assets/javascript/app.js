@@ -15,7 +15,7 @@ var trivia = [{
     answer: 1,
 },
 {
-    question: "What color was Cinderella's original dress to the ball?",
+    question: "What color was Cinderella's original dress to the ball in the animated version?",
     choices: ["Pink", "Blue", "White", "Purple"],
     answer: 0,
 },
@@ -91,7 +91,7 @@ var rightImages = ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10", 
 
 var wrongImages = ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11", "W12", "W13", "W14", "W15"];
 
-var timedOutImage = ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10", "T11", "T12", "T13", "T14", "T15"];
+var timedOutImages = ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10", "T11", "T12", "T13", "T14", "T15"];
 
 /* -------------- Responses ------------- */
 var responses = {
@@ -208,7 +208,7 @@ function finalResults() {
 
         // $(".right-answer").html("The correct answer was: " + correctAnswerText);
 
-        $("#image").html('<img src = "assets/images/' + timedOutImage[currentQuestion] + '.gif" width="600px" height="300px">');
+        $("#image").html('<img src = "assets/images/' + timedOutImages[currentQuestion] + '.gif" width="600px" height="300px">');
 
         answered = true;
     }
