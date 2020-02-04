@@ -108,9 +108,6 @@ var trivia = [{
 
 function startTrivia() {
     $(".display-container").show();
-    $("#number-right").empty();
-    $("#number-wrong").empty();
-    $("#number-skipped").empty();
     currentQuestion = 0;
     correctAnswer = 0;
     incorrectAnswer = 0;
@@ -190,14 +187,14 @@ function finalResults() {
 }
 
 function score() {
-    // $(".intro-container").hide();
     $(".display-container").hide();
     $(".results-container").show();
-    $("#time-remaining").empty();
-    $(".right-answer").empty();
-    $("#number-right").html("Correct: " + numberCorrect);
-    $("#number-wrong").html("Incorrect: " + numberWrong);
-    $("#skipped").html("No response: " + numberSkipped);
+    $("#number-right").empty();
+    $("#number-skipped").empty();
+    $("#number-right").html("Correct: " + correctAnswer);
+    $("#number-wrong").html("Incorrect: " + incorrectAnswer);
+    $("#number-skipped").html("Skipped: " + skipped);
+    $("#again").show();
 
 
 }
