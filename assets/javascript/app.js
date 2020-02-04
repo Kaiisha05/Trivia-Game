@@ -89,6 +89,11 @@ var userSelection;
 /* --------------- Images ------------- */
 var rightImages = ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10", "Q11", "Q12", "Q13", "Q14", "Q15"];
 
+var wrongImages = ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11", "W12", "W13", "W14", "W15"];
+
+var timedOutImage = ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10", "T11", "T12", "T13", "T14", "T15"];
+
+/* -------------- Responses ------------- */
 var responses = {
     right: "Yes, that is correct!",
     wrong: "Sorry, that is not correct.",
@@ -180,25 +185,31 @@ function finalResults() {
 
     var correctGuess = trivia[currentQuestion].answer;
 
-    // $("#image").html('<img src = "assets/images/' + images[currentQuestion] + '.gif" width="400px">');
-
     if ((userSelection === correctGuess) && (answered === true)) {
         correctAnswer++;
+
         $("#responses").html(responses.right);
-        $("#image").html('<img src = "assets/images/' + rightImages[currentQuestion] + '.gif" width="400px">');
+
+        $("#image").html('<img src = "assets/images/' + rightImages[currentQuestion] + '.gif" width="600px" height="300px">');
 
     } else if ((userSelection != correctGuess) && answered === true) {
         incorrectAnswer++;
 
         $("#responses").html(responses.wrong);
 
-        $(".right-answer").html("The correct answer was: " + correctAnswerText);
+        // $(".right-answer").html("The correct answer was: " + correctAnswerText);
+
+        $("#image").html('<img src = "assets/images/' + wrongImages[currentQuestion] + '.gif" width="600px" height="300px">');
 
     } else {
-
         skipped++;
+
         $("#responses").html(responses.timedOut);
-        $(".right-answer").html("The correct answer was: " + correctAnswerText);
+
+        // $(".right-answer").html("The correct answer was: " + correctAnswerText);
+
+        $("#image").html('<img src = "assets/images/' + timedOutImage[currentQuestion] + '.gif" width="600px" height="300px">');
+
         answered = true;
     }
     if (currentQuestion === (trivia.length - 1)) {
