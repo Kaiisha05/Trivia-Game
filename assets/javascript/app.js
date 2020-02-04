@@ -87,7 +87,7 @@ var answered;
 var userSelection;
 
 /* --------------- Images ------------- */
-var rightImages = ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10", "Q11", "Q12", "Q13", "Q14", "Q15"];
+var rightImages = ["Q1.gif", "Q2.gif", "Q3.gif", "Q4.gif", "Q5.gif", "Q6.gif", "Q7.gif", "Q8.gif", "Q9.gif", "Q10.gif", "Q11.gif", "Q12.gif", "Q13.gif", "Q14.gif", "Q15.jpg"];
 
 var wrongImages = ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11", "W12", "W13", "W14", "W15"];
 
@@ -158,7 +158,7 @@ function newQuestion() {
 
 /* ------------- TIMER------------- */
 function run() {
-    quizTime = 15;
+    quizTime = 10;
     $("#time-remaining").html("<h3>" + "Time Remaining: " + quizTime + "</h3>");
     answered = true;
     intervalId = setInterval(decrement, 1000);
@@ -190,7 +190,7 @@ function finalResults() {
 
         $("#responses").html(responses.right);
 
-        $("#image").html('<img src = "assets/images/' + rightImages[currentQuestion] + '.gif" width="600px" height="300px">');
+        $("#image").html('<img src = "assets/images/' + rightImages[currentQuestion] + '" width="600px" height="300px">');
 
     } else if ((userSelection != correctGuess) && answered === true) {
         incorrectAnswer++;
