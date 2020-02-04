@@ -1,10 +1,10 @@
 body {
-    background-image: url(/assets/images/background.jpg);
+    background: linear-gradient(hsla(0, 0%, 100%, 0.4) 0%, hsla(0, 0%, 100%, 0.4) 100%), url(/assets/images/background.jpg);
+    opacity: .8;
 
 }
 .intro-container, .results-container, .display-container {
 background: white;
-opacity: .8;
 text-align: center;
 margin:100px 100px;
 padding: 25px 50px;

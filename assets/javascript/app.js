@@ -1,34 +1,3 @@
-/* ------------ VARIABLES ------------ */
-var currentQuestion;
-var correctAnswer;
-var incorrectAnswer;
-var skipped;
-var seconds;
-var quizTime;
-var time;
-var answered;
-var userSelection;
-
-
-/* --------------- START GAME -------------- */
-$(document).ready(function () {
-    $(".results-container").hide();
-    $(".display-container").hide();
-});
-$("#start").on("click", function () {
-    $(".intro-container").hide();
-    startTrivia();
-    // $(".display-container").show();
-});
-
-
-/* --------------- PLAY AGAIN ---------------*/
-$("#again").on("Click", function () {
-    $(".results-container").hide();
-    $(".intro-container").hide();
-    startTrivia();
-});
-
 /* -------------- QUESTIONS ------------- */
 var trivia = [{
     question: "What did Scuttle call a fork?",
@@ -36,7 +5,7 @@ var trivia = [{
     answer: 0,
 },
 {
-    question: "What body part did Scuttle check on Prince Eric to confirm life?",
+    question: "What body part did Scuttle check on Prince Eric to confirm if he was alive?",
     choices: ["Wrist", "Chest", "Head", "Foot"],
     answer: 3,
 },
@@ -51,7 +20,7 @@ var trivia = [{
     answer: 0,
 },
 {
-    question: "Finish the lyrics: I know you I walked with you once upon a ______.",
+    question: "Finish the lyrics: 'I know you I walked with you once upon a ______.'",
     choices: ["Blue Moon", "Dream", "Starry Night", "Time"],
     answer: 1,
 },
@@ -101,13 +70,54 @@ var trivia = [{
     answer: 3,
 },
 {
-    question: "Who's hand does the Walt Disney statue hold?",
+    question: "Whose hand does the Walt Disney statue hold?",
     choices: ["Mickey Mouse", "Minnie Mouse", "Donald Duck", "Goofy"],
     answer: 0,
 }];
 
+/* ------------ VARIABLES ------------ */
+var currentQuestion;
+var correctAnswer;
+var incorrectAnswer;
+var skipped;
+var seconds;
+var quizTime;
+var time;
+var answered;
+var userSelection;
+
+/* --------------- Images ------------- */
+var rightImages = ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10", "Q11", "Q12", "Q13", "Q14", "Q15"];
+
+var responses = {
+    right: "Yes, that is correct!",
+    wrong: "Sorry, that is not correct.",
+    timedOut: "Oh dear, time has run out."
+};
+/* --------------- START GAME -------------- */
+$(document).ready(function () {
+    $(".results-container").hide();
+    $(".display-container").hide();
+});
+$("#start").on("click", function () {
+    $(".intro-container").hide();
+    startTrivia();
+});
+
+
+/* --------------- PLAY AGAIN ---------------*/
+$("#again").on("Click", function () {
+    $(".results-container").hide();
+    $(".intro-container").hide();
+    startTrivia();
+});
+
+
+
 function startTrivia() {
     $(".display-container").show();
+    // $("#responses").empty();
+    // $("#image").empty();
     currentQuestion = 0;
     correctAnswer = 0;
     incorrectAnswer = 0;
@@ -116,7 +126,9 @@ function startTrivia() {
 }
 
 function newQuestion() {
+    $("#responses").empty();
     $(".right-answer").empty();
+    $("#image").empty();
     answered = true;
 
     $("#currentQuestion").html("Question" + (currentQuestion + 1) + "/" + trivia.length);
@@ -165,16 +177,27 @@ function finalResults() {
     $("#question").empty();
 
     var correctAnswerText = trivia[currentQuestion].choices[trivia[currentQuestion].answer];
+
     var correctGuess = trivia[currentQuestion].answer;
+
+    // $("#image").html('<img src = "assets/images/' + images[currentQuestion] + '.gif" width="400px">');
 
     if ((userSelection === correctGuess) && (answered === true)) {
         correctAnswer++;
+        $("#responses").html(responses.right);
+        $("#image").html('<img src = "assets/images/' + rightImages[currentQuestion] + '.gif" width="400px">');
 
     } else if ((userSelection != correctGuess) && answered === true) {
         incorrectAnswer++;
+
+        $("#responses").html(responses.wrong);
+
         $(".right-answer").html("The correct answer was: " + correctAnswerText);
+
     } else {
+
         skipped++;
+        $("#responses").html(responses.timedOut);
         $(".right-answer").html("The correct answer was: " + correctAnswerText);
         answered = true;
     }
