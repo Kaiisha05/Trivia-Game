@@ -2,7 +2,7 @@ body {
     background-image: url(/assets/images/background.jpg);
 
 }
-.intro-container, .results-container, .question-container {
+.intro-container, .results-container, .display-container {
 background: white;
 opacity: .8;
 text-align: center;

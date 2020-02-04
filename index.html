@@ -15,49 +15,49 @@
     <div class="intro-container">
 
         <h3>Directions:</h3>
-        <p>You will have 15 seconds to answer each question. You may only select 1 choice per question. 
+        <p>You will have 15 seconds to answer each question. You may only select 1 choice per question.
             <br>
-            Have fun channeling your
-            inner child! <br>
+            Have fun channeling your inner child!
+            <br>
             Click START when you are ready to begin.</p>
 
-        <div id="start">
-            <button>START!</button>
-            <!-- <button id="start"><a href="trivia.html">START!</button> -->
-        </div>
+        <!-- <div id="start"> -->
+            <button id = "start">START!</button>
+        <!-- </div> -->
     </div>
     <!-- want to hide the directions once the START button has been clicked as well as start the timer -->
-    <div class="question-container">
+    <div class="display-container">
         <div id="time-remaining"></div>
-        <div id="questions"></div>
-        <br>
-        <div id="submit">
-            <!-- may not need since this is all taking place on click events -->
-            <button>SUBMIT</button>
-        </div>
-    </div>
+        <div id="current-question"></div>
+        <div id="question"></div>
+        <div id="choices"></div>
+        <div class="right-answer"></div>
+        <!-- <div id="submit"></div> -->
+        <!-- may not need since this is all taking place on click events -->
+        <!-- <button>SUBMIT</button> -->
+    <!-- </div>
 
-    <div class="results-container">
-        <h2>Here's Your Results!</h2>
+    <div class="results-container"> -->
+        <!-- <h2>Here's Your Results!</h2> -->
         <div id="results"></div>
         <p id="number-right"></p>
         <p id="number-wrong"></p>
         <p id="number-skipped"></p>
 
-        <div id="again">
-            <button>PLAY AGAIN</button>
+         <div id="again"></div> 
+            <!-- <button id = "again">PLAY AGAIN</button> -->
         </div>
-        <!-- <button><a href="index.html">PLAY AGAIN</a></button> -->
-
-    </div>
 
 
-    <!-- jQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <!-- Script -->
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
-    <!-- <script type="text/javascript" src="assets/javascript/alt.js"></script> -->
+
+
+        <!-- jQuery -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- Script -->
+        <script type="text/javascript" src="assets/javascript/app.js"></script>
+
 </body>
 </div>
 

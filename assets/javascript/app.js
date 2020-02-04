@@ -1,37 +1,28 @@
 /* ------------ VARIABLES ------------ */
-var numberCorrect = 0;
-var numberWrong = 0;
-var numberSkipped = 0;
+var currentQuestion;
+var correctAnswer;
+var incorrectAnswer;
+var skipped;
+var seconds;
+var quizTime;
+var time;
+var answered;
 var userSelection;
-// var setTimeout
-// var endGame;
-var countdown = false;
-// want the quiz time to give 225 seconds, which is equivalent to 15 seconds per question
-var quizTime = 15;
-// var beginGame
-var intervalId;
-var array = [];
-// var q = triviaQuestions.length;
 
-// $("#start").on("click", function () {
-//     $(".intro-container").hide();
-//     $(".question-container").show();
-//     run()
-// });
-/* -------------- START TRIVIA -------------- */
-$(document).ready(function () {
-    $(".question-container").hide();
-    $(".results-container").hide();
-    $("#start").on("click", function () {
-        $("#intro-container").hide();
-        startTrivia();
-        run();
-        for (var i = 0; i < trivia.length; i++) {
-            /*research */
-            array.push(trivia[i]);
-        }
-    })
+
+/* --------------- START GAME -------------- */
+$("#start").on("click", function () {
+    $(".intro-container").hide();
+    startTrivia();
+    // $(".display-container").show();
 });
+
+ /* --------------- PLAY AGAIN ---------------*/
+ $("#again").on("Click", function () {
+     $("#display-container").show();  
+    startTrivia();
+});
+
 /* -------------- QUESTIONS ------------- */
 var trivia = [{
     question: "What did Scuttle call a fork?",
@@ -104,75 +95,116 @@ var trivia = [{
     answer: 3,
 },
 {
-    question: "Who's hand does Walt Disney hold?",
+    question: "Who's hand does the Walt Disney statue hold?",
     choices: ["Mickey Mouse", "Minnie Mouse", "Donald Duck", "Goofy"],
     answer: 0,
 }];
-console.log(trivia)
-/* ------------- FUNCTIIONS ------------- */
+
+function startTrivia() {
+    $(".display-container").show();
+    $("#number-right").empty();
+    $("#number-wrong").empty();
+    $("#number-skipped").empty();
+    currentQuestion = 0;
+    correctAnswer = 0;
+    incorrectAnswer = 0;
+    skipped = 0;
+    newQuestion();
+}
+
+function newQuestion() {
+    $("#right-answer").empty();
+    answered = true;
+
+    $("#currentQuestion").html("Question" + (currentQuestion + 1) + "/" + trivia.length);
+    $("#question").html("<h1>" + trivia[currentQuestion].question + "</h1>");
+    for (var i = 0; i < 4; i++) {
+        var selections = $("<div>");
+        selections.text(trivia[currentQuestion].choices[i]);
+        selections.attr({ "data-guess": i });
+        selections.addClass("thisSelection");
+        $("#choices").append(selections);
+    }
+    run();
+
+
+    /* Pausing the Timer When an Answer is Selected */
+    $("#thisSelection").on("click", function () {
+        userSelection = $(this).data("guess");
+        clearInterval(intervalId);
+        finalResults();
+    })
+}
 
 /* ------------- TIMER------------- */
 function run() {
-    clearInterval(intervalId);
-    countdown = true;
+    quizTime = 15;
+    $("#time-remaining").html("<h2>" + "Time Remaining: " + quizTime + "</h2>");
+    answered = true;
+
     intervalId = setInterval(decrement, 1000);
 }
-function stop() {
-    clearInterval(intervalId);
 
-}
+
+//     
+//     countdown = true;
+
+// }
+// function stop() {
+//     clearInterval(intervalId);
+
+// }
 function decrement() {
     quizTime--;
     $("#time-remaining").html("<h2>" + "Time Remaining: " + quizTime + "</h2>");
-    if (quizTime === 0) {
-        numberSkipped++;
-        $("question-container").html("<h2>" + "Oh no, time's up, the correct answer is: " + triviaQuestions.choice[triviaQuestions.answer] + "</h2>");
-        countdown = false;
-        stop();
+    if (quizTime < 1) {
+        clearInterval(intervalId);
+        answered = false;;
+        finalResults();
+    
     };
 };
 
-/* ------------- DISPLAY QUESTIONS ------------- */
-
-// function startTrivia() {
-//     var shuffle = Math.floor(Math.random() * trivia.question.length);
-//     userSelection = trivia.question[shuffle];
-//     $("#questions").html("<h2>" + userSelection.question + "</h2>");
-//     for (var i = 0; i < userSelection.choice.length; i++) {
-//         var selection = $("<div>");
-//         selection.addClass("selected");
-//         selection.html(userSelection.choices[i]);
-//         userSelection.attr("data-guess", i);
-//         $(".question-container").append(selection);
-//     };
-// };
 
 
+function finalResults() {
+    $("#currentQuestion").empty();
+    $(".thisSelection").empty();
+    $("#question").empty();
 
-$("#submit").click(function () {
-    $(".question-container").hide();
-    $(".results-container").show();
-});
+    var correctAnswerText = trivia[currentQuestion].choices[trivia[currentQuestion].answer];
+    var correctGuess = trivia[currentQuestion].answer;
 
-// startTrivia();
-// need functionality for PLAY AGAIN BUTTON
+    if ((userSelection === correctGuess) && (answered === true)) {
+        correctAnswer++;
+
+    } else if ((userSelection != correctGuess) && answered === true) {
+        incorrectAnswer++;
+        $(".right-answer").html("The correct answer was: " + correctAnswerText);
+    } else {
+        skipped++;
+        $(".right-answer").html("The correct answer was: " + correctAnswerText);
+        answered = true;
+    }
+    if (currentQuestion === (trivia.length - 1)) {
+    setTimeout(score, 5000)
+    } else {
+        currentQuestion++;
+        setTimeout(newQuestion, 5000);
+    }
+}
+
+function score() {
+    // $(".intro-container").hide();
+    // $(".display-container").hide();
+    // $(".results-container").show();
+    $("#time-remaining").empty();
+    $(".right-answer").empty();
+    $("#number-right").html("Correct: " + numberCorrect);
+    $("#number-wrong").html("Incorrect: " + numberWrong);
+    $("#skipped").html("No response: " + numberSkipped);
+ 
+
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-// $("#quiz-questions").html(container)
-
-
-
-
-
-//         $("#submit").on("click", showResults);
