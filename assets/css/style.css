@@ -10,12 +10,13 @@ margin:100px 100px;
 padding: 25px 50px;
 border-radius: 8px
 }
-/* section {
-    width: 800px;
-    align-content: center
-} */
-#button {
+
+button {
     text-align: center;
+    border-radius: 5px;
+    font-size: 24px;
+    background-color: purple;
+    color: white;
  
 }
 h1 {
@@ -25,17 +26,7 @@ h1 {
     font-family: 'Tangerine', cursive;
     font-size: 60px;
 }
-/* #questions {
-    background: white;
-opacity: .8;
-text-align: center;
-margin:100px 100px;
-padding: 25px 50px;
-border-radius: 8px;
-} */ 
-/* duplicate formatting, currently pulling from line 5 */
-
-/* #time-remaining {
-    color:white;
-    text-align: center;
-} */
+.thisSelection {
+font-size: 20px;
+font-family: 'Playfair Display', serif;
+}

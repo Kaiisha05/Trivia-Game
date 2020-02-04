@@ -7,59 +7,48 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Disney Trivia</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Tangerine&display=swap" rel="stylesheet">
-</head>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Tangerine&display=swap" rel="stylesheet">
 
 <body>
     <h1>Disney Mania</h1>
     <div class="intro-container">
-
-        <h3>Directions:</h3>
-        <p>You will have 15 seconds to answer each question. You may only select 1 choice per question.
-            <br>
-            Have fun channeling your inner child!
-            <br>
-            Click START when you are ready to begin.</p>
-
-        <!-- <div id="start"> -->
-            <button id = "start">START!</button>
-        <!-- </div> -->
+        <h2>DIRECTIONS</h2>
+        <hr>
+        <p>You will have 15 seconds to answer each question.</p>
+        <p>Are you ready to channel your inner child?</p>
+        <button id="start">START</button>
     </div>
-    <!-- want to hide the directions once the START button has been clicked as well as start the timer -->
+
     <div class="display-container">
         <div id="time-remaining"></div>
         <div id="current-question"></div>
         <div id="question"></div>
         <div id="choices"></div>
+        <div id="responses"></div>
         <div class="right-answer"></div>
-        <!-- <div id="submit"></div> -->
-        <!-- may not need since this is all taking place on click events -->
-        <!-- <button>SUBMIT</button> -->
-     <!-- </div> -->
+    </div>
 
     <div class="results-container">
-        <!-- <h2>Here's Your Results!</h2> -->
         <div id="results"></div>
         <p id="number-right"></p>
         <p id="number-wrong"></p>
         <p id="number-skipped"></p>
-
-         <div id="again"></div> 
-        </div>
-            <!-- <button id = "again">PLAY AGAIN</button> -->
-        
+        <div id="again"></div>
+    </div>
 
 
 
 
 
-        <!-- jQuery -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-        <!-- Script -->
-        <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Script -->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 
 </body>
-</div>
+
 
 </html>
