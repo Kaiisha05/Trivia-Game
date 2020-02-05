@@ -111,18 +111,17 @@ $("#start").on("click", function () {
 
 
 /* --------------- PLAY AGAIN ---------------*/
-$("#again").on("Click", function () {
-    $(".results-container").hide();
-    $(".intro-container").hide();
-    startTrivia();
-});
+
+// $("#again").on("Click", function () {
+//     $(".results-container").hide();
+//     // $(".intro-container").show();
+//     startTrivia();
+// });
 
 
 
 function startTrivia() {
     $(".display-container").show();
-    // $("#responses").empty();
-    // $("#image").empty();
     currentQuestion = 0;
     correctAnswer = 0;
     incorrectAnswer = 0;
@@ -228,9 +227,14 @@ function score() {
     $("#number-right").html("Correct: " + correctAnswer);
     $("#number-wrong").html("Incorrect: " + incorrectAnswer);
     $("#number-skipped").html("Skipped: " + skipped);
-    $("#again").show();
+    // $("#again").show();
 
-
+    $("#again").on("Click", function () {
+        $(".results-container").hide();
+        $(".intro-container").hide();
+        // startTrivia();
+    });
 }
+
 
 
