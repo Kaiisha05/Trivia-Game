@@ -196,6 +196,7 @@ function finalResults() {
 
         $("#responses").html(responses.wrong);
 
+        // remove so answer does not display 
         // $(".right-answer").html("The correct answer was: " + correctAnswerText);
 
         $("#image").html('<img src = "assets/images/' + wrongImages[currentQuestion] + '.gif" width="600px" height="300px">');
@@ -204,7 +205,7 @@ function finalResults() {
         skipped++;
 
         $("#responses").html(responses.timedOut);
-
+        // remove so answer does not display 
         // $(".right-answer").html("The correct answer was: " + correctAnswerText);
 
         $("#image").html('<img src = "assets/images/' + timedOutImages[currentQuestion] + '.gif" width="600px" height="300px">');
@@ -229,10 +230,10 @@ function score() {
     $("#number-skipped").html("Skipped: " + skipped);
     // $("#again").show();
 
-    $("#again").on("Click", function () {
+    $("#again").on("click", function () {
         $(".results-container").hide();
         $(".intro-container").hide();
-        // startTrivia();
+        startTrivia();
     });
 }
 
