@@ -19,5 +19,7 @@ https://kaiisha05.github.io/Trivia-Game/
 # Technologies Used
 *Google Fonts
 *JQuery
+*JavaScript
+
 
 
